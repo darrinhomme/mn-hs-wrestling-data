@@ -39,13 +39,14 @@ p = state %>%
   dplyr::mutate(Grade = gsub("(", "", Grade, fixed = T)) %>%
   dplyr::mutate(Grade = gsub(")", "", Grade, fixed = T) %>% as.integer()) %>%
   dplyr::mutate(Grade = sprintf("G%02d", Grade)) %>%
+  dplyr::mutate(Count = ifelse(Weight == "170" & Grade == "G11" & Div == "A" & Year == "2017", Count + 1, Count)) %>%
   dplyr::group_by(Weight, Grade) %>%
   dplyr::summarise(Total = sum(Count)) %>%
   tidyr::spread(key = Grade, value = Total) %>%
   grid.table()
 
 
-SavePlot(p, width = 600, height = 450, name = "State-Participation-By-Grade-2016-2020.png")
+#SavePlot(p, width = 600, height = 450, name = "State-Participation-By-Grade-2016-2020.png")
 
 
 
