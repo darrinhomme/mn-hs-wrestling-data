@@ -51,3 +51,26 @@ p = state %>%
 
 
 
+state %>%
+  tidyr::gather(key = "Grade", value = "Count", 1:6) %>%
+  dplyr::mutate(Grade = gsub("(", "", Grade, fixed = T)) %>%
+  dplyr::mutate(Grade = gsub(")", "", Grade, fixed = T) %>% as.integer()) %>%
+  dplyr::mutate(Grade = sprintf("G%02d", Grade)) %>%
+  dplyr::mutate(Count = ifelse(Weight == "170" & Grade == "G11" & Div == "A" & Year == "2017", Count + 1, Count)) %>%
+  dplyr::mutate(Count = ifelse(Weight == "152" & Grade == "G10" & Div == "AAA" & Year == "2018", Count + 1, Count)) %>%
+  dplyr::group_by(Weight, Grade) %>%
+  dplyr::summarise(Total = sum(Count)) %>%
+  tidyr::spread(key = Grade, value = Total) %>%
+  dplyr::mutate(Sum = G07 + G08 + G09 + G10 + G11 + G12)
+
+
+state %>%
+  tidyr::gather(key = "Grade", value = "Count", 1:6) %>%
+  dplyr::mutate(Grade = gsub("(", "", Grade, fixed = T)) %>%
+  dplyr::mutate(Grade = gsub(")", "", Grade, fixed = T) %>% as.integer()) %>%
+  dplyr::mutate(Grade = sprintf("G%02d", Grade)) %>%
+  dplyr::filter(Weight == "152") %>%
+  tidyr::spread(key = Grade, value = Count) %>%
+  dplyr::mutate(Sum = G07 + G08 + G09 + G10 + G11 + G12)
+                
+                & Grade == "G11" & Div == "A" & Year == "2017", Count + 1, Count))
