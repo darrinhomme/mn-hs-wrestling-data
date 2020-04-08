@@ -27,7 +27,7 @@ read.csv("Sandbox/Data/members.csv") %>%
   facet_wrap(Grade~., nrow = 2) +
   labs(title = "All Minnesota High School Grades Distribution by Weight Class",  x = "Weight Classes")
 
-
+ 
 read.csv("Sandbox/Data/members.csv") %>% 
   dplyr::filter(Grade %in% c("7th", "8th")) %>%
   dplyr::group_by(Weight) %>%
