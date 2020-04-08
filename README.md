@@ -2,6 +2,22 @@
 Data and charts from the 2019-2020 season for every school (sourced from TrackWrestling.com)
 
 ## Distribution of Weight Classes
-This chart shows the distribution across all weight classes for grades 9th - 12th. I split out Girls and Boys to show where the concentration of wrestlers are within the weights. NOTE: The y-scales are not equal, if they were, the numbers of the girls data is dwarfed by the boys so you can't see the distribution. If I combine these two, the girls numbers are not big enought to significantly impact the boys curve. When MSHSL approves girls wrestling, it will be important to look at the data independently.
 
-![](Charts/MN-High-School-Distribution-by-Weight-Class.png)
+This chart shows the distribution across all weight classes for grades 9th - 12th. This bar chart is sorted by most to least:
+
+![](Images/MN-High-School-Distribution-by-Weight-Class-Ordered.png)
+
+If you break out each grade, you can see the Freshman class skews heavily to the lighter side while Sophmores on up skew to the heavier side.
+
+![](Images/MN-High-School-Grades-Distribution-by-Weight-Class-and-Grade.png)
+
+## State Tournament Participation by Grade and Weight Class
+Looking at the state tournament participation, the participation in the middle and upper weights is dominated by upper classman.
+
+The following table was sourced from TStuff.com from 2016-2020 for all three classes:
+
+![](Images/State-Participation-By-Grade-2016-2020.png)
+
+I left the girls in the data, they did not have the numbers to significantly alter the shape of the curves. When the MSHSL approves girls wrestling, they should be looked at independently.
+
+If you have any questions about this data, please contact me at darrin.homme@gmail.com
