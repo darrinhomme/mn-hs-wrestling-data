@@ -1,5 +1,5 @@
 # MN High School Wrestling Weight Classes
-Data and charts from the 2019-2020 season for every school (sourced from TrackWrestling.com)
+Data and charts from the 2019-2020 season for every school (sourced from TrackWrestling.com and TStuff.com)
 
 ## Distribution of Weight Classes
 
