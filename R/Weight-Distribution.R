@@ -1,23 +1,22 @@
 library(ggplot2)
 library(dplyr)
+library(magrittr)
+source("R/Functions.R")
 
-read.csv("Data/members.csv") %>% 
-  filter(Grade %in% c("7th", "8th", "Fr.", "So.", "Jr.", "Sr.")) %>%
-  filter(Sex == "M") %>%
-  group_by(Weight) %>%
-  summarise(Count = n()) %>%
-  ggplot(aes(x = as.character(Weight), y = Count)) +
-    geom_bar(stat = "identity") +
-    labs(title = "All Grades Distribution by Weight Class")
+members = read.csv("Data/members.csv") 
+teams = read.csv("Data/teams.csv")
 
-read.csv("Data/members.csv") %>% 
+p = members %>% 
   filter(Grade %in% c("Fr.", "So.", "Jr.", "Sr.")) %>%
-  filter(Sex == "M") %>%
-  group_by(Weight) %>%
+  group_by(Sex, Weight) %>%
   summarise(Count = n()) %>%
   ggplot(aes(x = as.character(Weight), y = Count)) +
   geom_bar(stat = "identity") +
-  labs(title = "All Minnesota High School Grades Distribution by Weight Class", x = "Weight Classes")
+  labs(title = "MN High School Distribution by Weight Class", x = "Weight Classes") +
+  facet_wrap(Sex~., nrow = 2, scales = "free_y")
+
+SavePlot(p)
+  
 
 read.csv("Sandbox/Data/members.csv") %>% 
   filter(Grade %in% c("Fr.", "So.", "Jr.", "Sr.")) %>%
